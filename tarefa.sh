@@ -27,31 +27,6 @@ limpar_Pacotes() {
 }
 
 # Atualizar repositorio git
-atualizar_Git() {
-   while [[ ! "$atulizarRepositorios" =~ [sSyYnN] ]]; do
-      echo -n "Atualizar repositórios do Git? [S/N] "
-      read atulizarRepositorios
-   done
-
-   if [[ "$atulizarRepositorios" =~ [sSyY] ]]; then
-
-      if test -e "/home/"$USER"/Git"; then
-         cd "/home/"$USER"/Git"
-         pwd
-         for subdiretorio in */; do
-            echo "Atualizando o repositório: $subdiretorio"
-            cd "$subdiretorio"
-            git pull
-            cd ..
-         done
-      else
-         echo "Diretório Git não encontrado"  
-      fi
-
-   fi  
-   
-}
-
 atualizar_Git() { 
    if test -e "/home/$USER/Git"; then
       
